@@ -13,7 +13,7 @@ int main(){
     if(b!=0){
         quot=a/b;
     }else{
-        printf("Error Divison by 0");
+        printf("Error Division by 0");
         return 1;
     }
 printf("\nResults\n");
