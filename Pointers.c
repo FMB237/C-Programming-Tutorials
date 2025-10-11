@@ -17,5 +17,20 @@ int main(){
     *ptr=60;
     printf("The New value of x is :%d\n",x); //So the pointers works like the ler in Modern Js
 
+
+    //Let me used pointers again for a small recall
+
+    int y =50;
+    int *p=&y;//This pointer will store the value of y
+    printf("The value of y is: %d\n" ,y);
+    printf("The value Pointed by y is :%p\n",&y);
+
+    //Let change the value of y 
+    *p=75;
+    printf("The new value of y is :%d\n",y);
+
+    
+
+
     return 0 ;
 }
