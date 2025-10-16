@@ -71,3 +71,29 @@ for f in *.c; do gcc -Wall -Wextra -std=c11 -o "${f%.c}.out" "$f" 2>/dev/null &&
 This folder contains learning code. Add a license file if you plan to share it publicly.
 
 If you'd like, tell me how you'd like the README formatted (short list, detailed docs per file, or add a Makefile) and I'll update it accordingly.
+
+## Reorganization report (automatically generated)
+
+Commit: 9789b21 — "Reorganize repository: group examples into lessons/, move binaries to builds/, docs to docs/"
+Author: FMB237
+Date: Thu Oct 16 12:48:06 2025 +0100
+
+Files moved: multiple files were reorganized into `lessons/` subfolders and build artifacts moved to `builds/` (see commit details in git history).
+
+Compile summary (fresh run using `gcc -Wall -Wextra -std=c11`)
+
+OK: many lesson examples compiled successfully. The following files produced warnings/errors that you may want to fix:
+
+- `lessons/01_basics/Variables.c` — uses `char grade = "C";` (string literal assigned to char). Use `char grade = 'C';` or `char *grade = "C";`.
+- `lessons/04_pointers/PointersAndFunctions.c` — a non-void function does not return on all paths; ensure all paths return a value or change signature to `void`.
+- `lessons/04_pointers/PointersExercise.c` — has unused pointer variables (`pa`, `pb`) shown by compiler warnings.
+- `lessons/08_projects/SimpleLoginSystem.c` — `scanf("%s", &Trier);` passes `&Trier` (type `char (*)[10]`) instead of `Trier` (type `char *`); use `scanf("%9s", Trier);` to avoid overflow.
+- `lessons/03_arrays/Arrays.c` — printing an address with `%d` (`printf("...%d", &score[2]);`) is incorrect; use `%p` and cast to `(void*)`.
+
+Next recommended fixes:
+
+1. Fix the simple issues above and re-run the compile step. I can apply these edits for you.
+2. Add a top-level `README.md` describing the new `lessons/` layout and a `Makefile` to build selected examples.
+3. Add a `.gitignore` to avoid committing compiled binaries in future (e.g., `builds/`, `*.out`).
+
+If you'd like, I can now apply the simple source fixes (Variables.c, SimpleLoginSystem.c, Arrays.c, and the non-void-return in PointersAndFunctions.c) and re-run compilation.
