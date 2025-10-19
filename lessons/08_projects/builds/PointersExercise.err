@@ -1,7 +1,0 @@
-lessons/04_pointers/PointersExercise.c: In function ‘main’:
-lessons/04_pointers/PointersExercise.c:17:10: warning: unused variable ‘pb’ [-Wunused-variable]
-   17 |     int *pb=&b;
-      |          ^~
-lessons/04_pointers/PointersExercise.c:16:10: warning: unused variable ‘pa’ [-Wunused-variable]
-   16 |     int *pa=&a;
-      |          ^~

@@ -1,7 +1,0 @@
-lessons/08_projects/SimpleLoginSystem.c: In function ‘main’:
-lessons/08_projects/SimpleLoginSystem.c:9:13: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘char (*)[10]’ [-Wformat=]
-    9 |     scanf("%s",&Trier);
-      |            ~^  ~~~~~~
-      |             |  |
-      |             |  char (*)[10]
-      |             char *

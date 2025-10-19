@@ -1,4 +1,0 @@
-lessons/01_basics/Variables.c: In function ‘main’:
-lessons/01_basics/Variables.c:7:16: warning: initialization of ‘char’ from ‘char *’ makes integer from pointer without a cast [-Wint-conversion]
-    7 |     char grade="C";
-      |                ^~~
