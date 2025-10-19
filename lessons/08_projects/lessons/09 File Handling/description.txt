@@ -1,0 +1,6 @@
+In C  we use file pointers and the file type from <stdio.h> to handle files
+Some basic functions for file handling are 
+1.fopen() :Which is been used to open files using the c 📂
+2.fprintf() :Which is been used to write to a file 
+3.fscanf() :Which is been Used to read into a file
+4.fclose() :Which is used to close a file 

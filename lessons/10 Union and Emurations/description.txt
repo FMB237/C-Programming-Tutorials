@@ -1,0 +1,14 @@
+Now that i have an understanding of the purpose ans Struct and functions in C 
+
+let Discords about Union and Emurations
+🧩 Unions and Enumerations (enum)
+
+These two features are very similar to struct, but they behave differently and are used for more specific cases.
+
+1.Union 
+
+A Union is like a Struct but can remeber the same memory Locations
+Union
+
+A union is like a struct, but all its members share the same memory location.
+That means at any time, only one member can store a value.
