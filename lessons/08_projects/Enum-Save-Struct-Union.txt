@@ -1,0 +1,162 @@
+//This code is to save and load data entries using Struct, Union, and Enum
+
+//Okay let start coding 
+
+#include<stdio.h>
+#include<string.h>
+
+//Let enumarate our data
+
+enum Datatype {INT=1,FLOAT,STRINGS};
+
+//let add our union 
+union Value
+{
+    int i;
+    float f;
+    char s[50];
+};
+
+//let add our Structs
+
+struct DataEntry
+{
+    enum Datatype type;
+    union Value value;
+};
+
+int main(){
+    //let call back our structs
+    struct DataEntry entries[10]; 
+    int n;
+    FILE *fp; //To add File gestion in C
+
+    fp=fopen("data.txt","r");
+    if(fp != NULL){
+        printf("\n===Loading Save entities===");
+        int count =0;
+        while(fscanf(fp,"%d", (int *)&entries[count].type) == 1){
+        switch(entries[count].type){
+            case INT:
+            fscanf(fp,"%d",&entries[count].value.i);
+            break;
+
+            case FLOAT:
+            fscanf(fp,"%f",&entries[count].value.f);
+            break;
+
+            case STRINGS:
+            fscanf(fp,"%s",&entries[count].value.s);
+            break;
+
+        }
+        count ++;
+        }
+        fclose(fp);
+        printf("%d entries loaded from file \n\n",count);
+    }   
+    //Now let ask for user entries
+
+   printf("How many entries to do want (max 10) :");
+   if(n<0 || n>10){
+    printf("Invalid entry");
+   } 
+   scanf("%d",&n);
+
+   for (int i = 0; i < n; i++)
+   {
+
+    printf("\n===Entry=== %d\n",i+1);
+    printf("Select a Datatype \n");
+    printf("1.Intergers : \n ");
+    printf("2.Float :\n");
+    printf("3.Strings :\n");
+    scanf("%d",&entries[i].type);
+
+   //Now let switch cases from our program
+
+   switch (entries[i].type)
+   {
+   case INT:
+   printf("Enter an integer :");
+   scanf("%d",&entries[i].value.i);
+   break;
+
+   case FLOAT:
+   printf("Enetr a Float :");
+   scanf("%f",&entries[i].value.f);
+   break;
+
+   case STRINGS:
+   printf("Enter a string :");
+   scanf("%s",&entries[i].value.s);
+   break;
+
+   
+   default:
+   printf("Invalid Datatype\n");
+   i--;
+    break;
+   }
+
+   }
+   
+
+   //Now let save entries to files
+
+   for (int i = 0; i < n; i++)
+   {
+   fp=fopen("data.txt","r"); //let read the file now
+   fprintf(fp,"%d",&entries[i].type);
+   switch (entries[i].type)
+   {
+   case INT:
+   fprintf(fp,"%d\n",entries[i].value.i);
+   break;
+    
+   case FLOAT:
+   fprintf(fp,"%f\n",entries[i].value.f);
+   break;
+
+   case STRINGS:
+   fprintf(fp,"%s\n",entries[i].value.s);
+   break;
+   
+   default:
+    break;
+   }
+
+
+   }
+
+//Now let display the final result
+ printf("\n===Displaying all Entries===\n");
+       for (int i = 0; i < n; i++)
+       {
+        printf("Entry %d -> ",i+1);
+        switch (entries[i].type)
+        {
+        case INT:
+        printf("Interger :%d\n",entries[i].value.i);
+        break;
+
+        case FLOAT:
+        printf("Float : %.2f\n",entries[i].value.f);
+        break;
+        
+        case STRINGS:
+        printf("Strings :%s\n",entries[i].value.s);    
+        break;
+            
+        
+        default:
+        printf("Unknown type \n ");
+            break;
+        }
+       }
+       
+    return 0;
+   
+
+}
+
